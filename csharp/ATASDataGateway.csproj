@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AssemblyName>NFQE_Bridge_UDP</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		<PackageReference Include="WebSocketSharp-netstandard" Version="1.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="ATAS.DataFeedsCore">
+	    <HintPath>C:\Program Files (x86)\ATAS Platform\ATAS.DataFeedsCore.dll</HintPath>
+	  </Reference>
+	  <Reference Include="ATAS.Indicators">
+	    <HintPath>C:\Program Files (x86)\ATAS Platform\ATAS.Indicators.dll</HintPath>
+	  </Reference>
+	  <Reference Include="ATAS.Strategies">
+	    <HintPath>C:\Program Files (x86)\ATAS Platform\ATAS.Strategies.dll</HintPath>
+	  </Reference>
+	  <Reference Include="ATAS.Types">
+	    <HintPath>C:\Program Files (x86)\ATAS Platform\ATAS.Types.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Utils.Common">
+	    <HintPath>C:\Program Files (x86)\ATAS Platform\Utils.Common.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+</Project>
+
