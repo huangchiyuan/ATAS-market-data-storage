@@ -132,6 +132,8 @@ pip install -r requirements.txt
 
 ### 3. 启动 Python 数据接收程序
 
+#### 方式一：存储到数据库（推荐）
+
 ```bash
 python data_storage_module.py
 ```
@@ -146,6 +148,17 @@ python data_storage_module.py
 💡 按 Ctrl+C 停止（或等待30秒无数据自动停止）
 [STATUS] Listening on 5555...
 ```
+
+#### 方式二：实时显示 Demo（测试用）
+
+```bash
+python demo_realtime_receiver.py
+```
+
+这个 Demo 会实时显示接收到的数据，不存储到数据库，适合：
+- 测试 ATAS 数据发送是否正常
+- 查看实时数据格式
+- 调试数据接收问题
 
 ### 4. 在 ATAS 中加载指标
 
@@ -271,6 +284,32 @@ module.run()
 # 或手动停止
 module.stop(graceful=True)
 ```
+
+#### `demo_realtime_receiver.py`（实时接收 Demo）
+
+**功能**：
+- 实时接收和显示 Tick 和 DOM 数据
+- 统计接收速率
+- 显示最新价格和 DOM 快照
+
+**使用方法**：
+
+```bash
+python demo_realtime_receiver.py
+```
+
+**输出示例**：
+```
+[TICK] 🟢 ES     | 价格:    6849.25 | 数量:        5 | 方向: BUY  | 时间: 14:30:15.123
+[DOM]  ES     | Bid:    6849.25 | Ask:    6849.50 | Spread:   0.25 | 时间: 14:30:15.125
+        Bids: 6849.25@17 | 6849.00@50 | 6848.75@30
+        Asks: 6849.50@12 | 6849.75@20 | 6850.00@15
+```
+
+**适用场景**：
+- 测试 ATAS 数据发送是否正常
+- 查看实时数据格式
+- 调试数据接收问题
 
 ### 配置参数
 
@@ -452,22 +491,4 @@ DB_FOLDER = "your_custom_folder"
 
 ---
 
-## 📝 快速使用流程总结
-
-### 使用系统
-
-1. **安装 Python 依赖**：`pip install -r requirements.txt`
-2. **复制 DLL**：将 `NFQE_Bridge_UDP.dll` 复制到 `C:\Users\Administrator\AppData\Roaming\ATAS\Indicators`
-3. **启动 Python 程序**：`python data_storage_module.py`
-4. **在 ATAS 中加载指标**：打开图表 → 添加 "NFQE DataPump V4.0" 指标
-5. **开始接收数据**：数据自动保存到 `market_data_db/` 文件夹
-
-### 推送到 GitHub
-
-1. **在 GitHub 上创建新仓库**（见 [GITHUB_SETUP.md](GITHUB_SETUP.md)）
-2. **初始化 Git**：`git init && git add . && git commit -m "Initial commit"`
-3. **连接远程仓库**：`git remote add origin <你的仓库地址>`
-4. **推送代码**：`git push -u origin main`
-
-详细步骤请查看 **[GITHUB_SETUP.md](GITHUB_SETUP.md)**
 
